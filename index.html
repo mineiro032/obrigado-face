@@ -1,43 +1,164 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clique e vamos nessa...</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .container {
-            text-align: center;
-        }
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
-            color: white;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>obrigado — prepare-se</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.18/index.min.css">
+<style>
+  :root {
+    --bg-0: #08090a;
+    --bg-1: #0f1011;
+    --bg-2: #191a1b;
+    --bg-3: #28282c;
+    --tx-1: #f7f8f8;
+    --tx-2: #d0d6e0;
+    --tx-3: #8a8f98;
+    --tx-4: #62666d;
+    --indigo: #5e6ad2;
+    --indigo-b: #7170ff;
+    --border-1: rgba(255,255,255,0.05);
+    --border-2: rgba(255,255,255,0.08);
+    --success: #4cb782;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv01', 'ss03';
+    background-color: var(--bg-0);
+    color: var(--tx-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--bg-1);
+    border: 1px solid var(--border-2);
+    border-radius: 12px;
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(76,183,130,0.1);
+    border: 1px solid rgba(76,183,130,0.3);
+    border-radius: 9999px;
+    color: var(--success);
+    font-size: 13px;
+    font-weight: 510;
+    letter-spacing: -0.165px;
+    margin-bottom: 32px;
+  }
+
+  .badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+  }
+
+  .icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+    border-radius: 12px;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--indigo-b);
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 590;
+    letter-spacing: -0.704px;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin-bottom: 12px;
+  }
+
+  p.sub {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.165px;
+    color: var(--tx-3);
+    line-height: 1.5;
+    max-width: 360px;
+    margin: 0 auto 32px;
+  }
+
+  a.cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 15px 30px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 510;
+    letter-spacing: -0.165px;
+    color: var(--tx-1);
+    background: var(--indigo);
+    border: 1px solid var(--indigo-b);
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  a.cta svg { flex-shrink: 0; }
+
+  p.note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--tx-4);
+    letter-spacing: -0.165px;
+  }
+</style>
 </head>
 <body>
+  <div class="card">
+    <div class="badge"><span class="dot"></span>acesso confirmado</div>
 
-    <div class="container">
-        <h1>Prepare-se!</h1>
-        <button onclick="window.location.href='https://www.botbrainapp.com.br/l/bot-4df2b8a6'">Entre em Contato</button>
+    <div class="icon">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
     </div>
 
+    <h1>prepare-se!</h1>
+    <p class="sub">seu lugar no grupo vip está garantido. clique no botão abaixo pra entrar agora e não perder nada.</p>
+
+    <a class="cta" href="https://www.botbrainapp.com.br/l/bot-4df2b8a6">
+      entrar no grupo vip
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14"></path>
+        <path d="M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+
+    <p class="note">o acesso abre em uma nova conversa</p>
+  </div>
 </body>
 </html>
