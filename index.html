@@ -19,7 +19,7 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1650293733771132&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-  
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>obrigado — prepare-se</title>
@@ -124,7 +124,7 @@ src="https://www.facebook.com/tr?id=1650293733771132&ev=PageView&noscript=1"
     margin: 0 auto 32px;
   }
 
-  a.cta {
+  button.cta {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +143,12 @@ src="https://www.facebook.com/tr?id=1650293733771132&ev=PageView&noscript=1"
     cursor: pointer;
   }
 
-  a.cta svg { flex-shrink: 0; }
+  button.cta:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  button.cta svg { flex-shrink: 0; }
 
   p.note {
     margin-top: 20px;
@@ -169,15 +174,57 @@ src="https://www.facebook.com/tr?id=1650293733771132&ev=PageView&noscript=1"
     <h1>prepare-se!</h1>
     <p class="sub">seu lugar no grupo vip está garantido. clique no botão abaixo pra entrar agora e não perder nada.</p>
 
-    <a class="cta" href="https://t.me/+2ZX69TR9AeRhMzIx">
+    <button class="cta" id="ctaBot">
       entrar no grupo vip
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M5 12h14"></path>
         <path d="M12 5l7 7-7 7"></path>
       </svg>
-    </a>
+    </button>
 
     <p class="note">o acesso abre em uma nova conversa</p>
   </div>
+
+<script>
+document.getElementById('ctaBot').addEventListener('click', function () {
+  var btn = this;
+  btn.disabled = true;
+
+  var shortCode = "bot-d6112058";
+  var endpoint = "https://gfakbrdvnfutznhyuvrv.supabase.co/functions/v1/track-external-click";
+
+  var params = {};
+  new URLSearchParams(window.location.search).forEach(function (v, k) { params[k] = v; });
+
+  var done = false;
+  var fallback = setTimeout(function () {
+    if (!done) { done = true; window.location.href = "https://t.me/+2ZX69TR9AeRhMzIx"; }
+  }, 3000);
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      shortCode: shortCode,
+      queryParams: params,
+      userAgent: navigator.userAgent,
+      urlCompleto: window.location.search.substring(1) || null
+    })
+  })
+  .then(function (r) { return r.json(); })
+  .then(function (d) {
+    if (done) return;
+    done = true;
+    clearTimeout(fallback);
+    window.location.href = (d && d.redirectUrl) ? d.redirectUrl : "https://t.me/+2ZX69TR9AeRhMzIx";
+  })
+  .catch(function () {
+    if (done) return;
+    done = true;
+    clearTimeout(fallback);
+    window.location.href = "https://t.me/+2ZX69TR9AeRhMzIx";
+  });
+});
+</script>
 </body>
 </html>
